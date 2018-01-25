@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="70*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListView Name="divisionList" ItemStringFormat="String" SelectionChanged="DivisionList_SelectionChanged"/>
+
+        <DataGrid Name="employeeData" Grid.Column="1" AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ФИО" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="Возраст" Binding="{Binding Path=Age}"/>
+                <DataGridTextColumn Header="Дата принятия на работу" Binding="{Binding Path=HireDate}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
